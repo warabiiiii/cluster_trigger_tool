@@ -1,20 +1,8 @@
-import { css } from "@emotion/css";
 import type { NextPage } from "next";
-
-const title = css`
-  margin-bottom: 16px;
-`;
-const body = css`
-  padding: 16px;
-`;
+import TriggerTool from "../src/component/triggerTool";
 
 const Home: NextPage = () => {
-  return (
-    <div>
-      <h1 className={title}>Home</h1>
-      <div className={body}>body</div>
-    </div>
-  );
+  return <TriggerTool />;
 };
 
 export default Home;
