@@ -3,9 +3,12 @@ import { createTheme } from "@mui/material/styles";
 
 // Create a theme instance.
 const theme = createTheme({
+  shape: {
+    borderRadius: 4,
+  },
   palette: {
     primary: {
-      main: indigo[500],
+      main: indigo["A200"],
     },
     secondary: {
       main: red[500],
@@ -18,7 +21,7 @@ const theme = createTheme({
     MuiAppBar: {
       defaultProps: {
         position: "static",
-        color: "default",
+        color: "primary",
         elevation: 0,
       },
     },
@@ -62,14 +65,6 @@ const theme = createTheme({
         root: {
           display: "block",
           width: "160px",
-        },
-      },
-    },
-    MuiPaper: {
-      defaultProps: {},
-      styleOverrides: {
-        root: {
-          border: `1px solid ${grey["200"]}`,
         },
       },
     },
