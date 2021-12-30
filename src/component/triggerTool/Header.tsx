@@ -11,7 +11,7 @@ const Header: React.FunctionComponent = () => {
   return (
     <AppBar>
       <Toolbar>
-        <Title variant="h6">ClusterTriggerTool</Title>
+        <Title variant="h6">Cluster Trigger Tool</Title>
       </Toolbar>
     </AppBar>
   );
