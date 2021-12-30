@@ -11,6 +11,7 @@ import { download } from "../../../utils/download";
 import { styled } from "@mui/system";
 import { JsonFormat, Trigger } from "../../../types/Trigger";
 import TriggerCard from "./TriggerCard";
+import { sendTrackingEvent } from "../../../utils/analytics";
 
 const CardWrapper = styled("div")`
   margin-bottom: 16px;
@@ -81,12 +82,19 @@ const EditForm = (): JSX.Element => {
       {({ values }) => (
         <Form>
           <ButtonsArea>
-            <Button type="submit" color="primary">
+            <Button
+              type="submit"
+              color="primary"
+              onClick={() => {
+                sendTrackingEvent("export");
+              }}
+            >
               Export JSON
             </Button>
             <Button
               onClick={() => {
                 loadJsonFile();
+                sendTrackingEvent("import");
               }}
             >
               Import JSON
@@ -105,14 +113,17 @@ const EditForm = (): JSX.Element => {
                         trigger={trigger}
                         remove={() => {
                           arrayHelpers.remove(triggerIndex);
+                          sendTrackingEvent("remove trigger");
                         }}
                         isFirst={triggerIndex === 0}
                         isLast={triggerIndex === values.triggers.length - 1}
                         moveUp={() => {
                           arrayHelpers.swap(triggerIndex, triggerIndex - 1);
+                          sendTrackingEvent("move up trigger");
                         }}
                         moveDown={() => {
                           arrayHelpers.swap(triggerIndex, triggerIndex + 1);
+                          sendTrackingEvent("move down trigger");
                         }}
                         duplication={() => {
                           arrayHelpers.insert(triggerIndex + 1, {
@@ -134,6 +145,7 @@ const EditForm = (): JSX.Element => {
                         state: [],
                       };
                       arrayHelpers.push(emptyTrigger);
+                      sendTrackingEvent("add trigger");
                     }}
                   >
                     Add
