@@ -1,0 +1,20 @@
+import React from "react";
+
+import { Typography, AppBar, Toolbar } from "@mui/material";
+import { styled } from "@mui/system";
+
+const Title = styled(Typography)`
+  flex-grow: 1;
+`;
+
+const Header: React.FunctionComponent = () => {
+  return (
+    <AppBar>
+      <Toolbar>
+        <Title variant="h6">ClusterTriggerTool</Title>
+      </Toolbar>
+    </AppBar>
+  );
+};
+
+export default Header;
